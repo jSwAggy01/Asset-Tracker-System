@@ -32,5 +32,5 @@ externalPort = 80
 
 [deployment]
 deploymentTarget = "autoscale"
-run = ["dotnet", "out/CountyAssetTracker.dll"]
-build = ["dotnet", "publish", "-c", "Release", "-o", "out"]
+run = ["bash", "-c", "cd publish && dotnet CountyAssetTracker.dll --urls http://0.0.0.0:5000"]
+build = ["bash", "-c", "cd CountyAssetTracker && dotnet publish -c Release -o ../publish"]

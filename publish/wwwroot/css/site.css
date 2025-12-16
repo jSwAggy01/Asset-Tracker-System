@@ -1,0 +1,40 @@
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+.navbar-brand {
+    font-weight: bold;
+}
+
+.card {
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+.display-4 {
+    font-weight: 600;
+}
+
+code {
+    background-color: #f8f9fa;
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.25rem;
+}
+
+pre code {
+    background-color: transparent;
+    padding: 0;
+}
+
+.table th {
+    font-weight: 600;
+}
+
+.footer {
+    margin-top: auto;
+}
