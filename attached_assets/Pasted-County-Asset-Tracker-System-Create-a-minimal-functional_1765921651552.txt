@@ -1,0 +1,28 @@
+County Asset Tracker System
+
+Create a minimal, functional Internal Asset Tracking System that demonstrates proficiency in C#/.NET and SQL/Database Management—the core technologies used by San Bernardino County IT.
+
+1. Core Technology Stack
+    - Front-End/Application Layer: C# (Console Application or minimal WinForms/WPF for simplicity) / .NET Framework or .NET Core.
+    - Database: SQL (Use SQLite for rapid local deployment, but structure the code as if it were MS SQL Server using parameters and connection strings).
+    - Data Access: Implement using a simple ADO.NET structure or a lightweight ORM (like Dapper, if comfortable) to show proper database interaction from C#.
+
+2. Database Requirements (SQL Focus)
+The most important part is the database design. Design a relational database with at least three tables that demonstrate proper normalization and relationships:
+    - Assets: (AssetID - Primary Key, AssetName, SerialNumber, PurchaseDate, Status, LocationID - Foreign Key)
+    - Locations: (LocationID - Primary Key, LocationName, Building)
+    - Employees (or Custodians): (EmployeeID - Primary Key, FirstName, LastName, AssetID - Foreign Key (to Assets))
+
+3. C# Application Functionality (Minimal MVP)
+The C# application must perform the following core CRUD (Create, Read, Update, Delete) operations, ensuring all SQL queries are executed from the C# code:
+    - Add New Asset: A C# function to insert a new record into the Assets table.
+    - View All Assets: A C# function that retrieves data from Assets and Locations using a JOIN and displays it (e.g., "Laptop XYZ, Building A").
+    - Update Asset Status: A C# function to change the Status of an existing asset based on its AssetID.
+
+4. Deliverables
+    - The complete SQL Schema (CREATE TABLE statements) proving the database design.
+    - The full C# Source Code demonstrating:
+        - Connection management.
+        - Execution of parameterized SQL queries (INSERT, SELECT, UPDATE).
+        - Basic object mapping (turning database results into C# objects).
+    - A short README explaining the database design and how the C# code interacts with it.
