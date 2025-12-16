@@ -1,0 +1,60 @@
+@page "{id:int}"
+@model CountyAssetTracker.Pages.Assets.EditModel
+@{
+    ViewData["Title"] = "Edit Asset";
+}
+
+<h1>Edit Asset</h1>
+<p class="text-muted">Update asset details using parameterized SQL UPDATE</p>
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-body">
+                <form method="post">
+                    <input type="hidden" asp-for="Asset.AssetID" />
+                    
+                    <div class="mb-3">
+                        <label asp-for="Asset.AssetName" class="form-label">Asset Name</label>
+                        <input asp-for="Asset.AssetName" class="form-control" required />
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Asset.SerialNumber" class="form-label">Serial Number</label>
+                        <input asp-for="Asset.SerialNumber" class="form-control" required />
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Asset.PurchaseDate" class="form-label">Purchase Date</label>
+                        <input asp-for="Asset.PurchaseDate" type="date" class="form-control" required />
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Asset.LocationID" class="form-label">Location</label>
+                        <select asp-for="Asset.LocationID" class="form-select" required>
+                            @foreach (var location in Model.Locations)
+                            {
+                                <option value="@location.LocationID">@location.LocationName - @location.Building</option>
+                            }
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Asset.Status" class="form-label">Status</label>
+                        <select asp-for="Asset.Status" class="form-select" required>
+                            <option value="Active">Active</option>
+                            <option value="Inactive">Inactive</option>
+                            <option value="Maintenance">Maintenance</option>
+                            <option value="Disposed">Disposed</option>
+                        </select>
+                    </div>
+
+                    <div class="d-flex gap-2">
+                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                        <a href="/Assets" class="btn btn-outline-secondary">Cancel</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

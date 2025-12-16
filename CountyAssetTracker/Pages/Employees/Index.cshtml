@@ -1,0 +1,41 @@
+@page
+@model CountyAssetTracker.Pages.Employees.IndexModel
+@{
+    ViewData["Title"] = "Employees";
+}
+
+<h1>Employees (Custodians)</h1>
+<p class="text-muted">Employees with asset assignments using LEFT JOIN query</p>
+
+<div class="card">
+    <div class="card-body">
+        <table class="table table-striped">
+            <thead class="table-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Assigned Asset</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var employee in Model.Employees)
+                {
+                    <tr>
+                        <td>@employee.EmployeeID</td>
+                        <td>@employee.FullName</td>
+                        <td>
+                            @if (employee.AssetName != null)
+                            {
+                                <span class="badge bg-info">@employee.AssetName</span>
+                            }
+                            else
+                            {
+                                <span class="text-muted">No asset assigned</span>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

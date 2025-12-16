@@ -1,0 +1,82 @@
+@page
+@model CountyAssetTracker.Pages.Assets.CreateModel
+@{
+    ViewData["Title"] = "Add New Asset";
+}
+
+<h1>Add New Asset</h1>
+<p class="text-muted">Create a new asset record using parameterized SQL INSERT</p>
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-body">
+                <form method="post">
+                    <div class="mb-3">
+                        <label asp-for="Asset.AssetName" class="form-label">Asset Name</label>
+                        <input asp-for="Asset.AssetName" class="form-control" required />
+                        <span asp-validation-for="Asset.AssetName" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Asset.SerialNumber" class="form-label">Serial Number</label>
+                        <input asp-for="Asset.SerialNumber" class="form-control" required />
+                        <span asp-validation-for="Asset.SerialNumber" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Asset.PurchaseDate" class="form-label">Purchase Date</label>
+                        <input asp-for="Asset.PurchaseDate" type="date" class="form-control" required />
+                        <span asp-validation-for="Asset.PurchaseDate" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Asset.LocationID" class="form-label">Location</label>
+                        <select asp-for="Asset.LocationID" class="form-select" required>
+                            <option value="">Select a location...</option>
+                            @foreach (var location in Model.Locations)
+                            {
+                                <option value="@location.LocationID">@location.LocationName - @location.Building</option>
+                            }
+                        </select>
+                        <span asp-validation-for="Asset.LocationID" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Asset.Status" class="form-label">Status</label>
+                        <select asp-for="Asset.Status" class="form-select" required>
+                            <option value="Active">Active</option>
+                            <option value="Inactive">Inactive</option>
+                            <option value="Maintenance">Maintenance</option>
+                            <option value="Disposed">Disposed</option>
+                        </select>
+                        <span asp-validation-for="Asset.Status" class="text-danger"></span>
+                    </div>
+
+                    <div class="d-flex gap-2">
+                        <button type="submit" class="btn btn-primary">Add Asset</button>
+                        <a href="/Assets" class="btn btn-outline-secondary">Cancel</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card bg-light">
+            <div class="card-header">
+                <h6>SQL Query Preview</h6>
+            </div>
+            <div class="card-body">
+                <pre class="bg-dark text-light p-3 rounded"><code>INSERT INTO Assets 
+  (AssetName, SerialNumber, 
+   PurchaseDate, Status, 
+   LocationID)
+VALUES 
+  (@@AssetName, @@SerialNumber,
+   @@PurchaseDate, @@Status,
+   @@LocationID);</code></pre>
+                <small class="text-muted">Parameterized query prevents SQL injection</small>
+            </div>
+        </div>
+    </div>
+</div>

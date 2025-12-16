@@ -1,0 +1,103 @@
+@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="row mb-4">
+    <div class="col">
+        <h1>County Asset Tracker Dashboard</h1>
+        <p class="lead">Internal Asset Tracking System for San Bernardino County IT</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4 mb-3">
+        <div class="card bg-primary text-white">
+            <div class="card-body">
+                <h5 class="card-title">Total Assets</h5>
+                <h2 class="display-4">@Model.TotalAssets</h2>
+                <a href="/Assets" class="btn btn-light btn-sm">View All</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-3">
+        <div class="card bg-success text-white">
+            <div class="card-body">
+                <h5 class="card-title">Active Assets</h5>
+                <h2 class="display-4">@Model.ActiveAssets</h2>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-3">
+        <div class="card bg-warning text-dark">
+            <div class="card-body">
+                <h5 class="card-title">In Maintenance</h5>
+                <h2 class="display-4">@Model.MaintenanceAssets</h2>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-md-6 mb-3">
+        <div class="card">
+            <div class="card-header">
+                <h5>Quick Actions</h5>
+            </div>
+            <div class="card-body">
+                <a href="/Assets/Create" class="btn btn-primary me-2">Add New Asset</a>
+                <a href="/Assets" class="btn btn-outline-secondary">View All Assets</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 mb-3">
+        <div class="card">
+            <div class="card-header">
+                <h5>System Information</h5>
+            </div>
+            <div class="card-body">
+                <p><strong>Locations:</strong> @Model.TotalLocations</p>
+                <p><strong>Employees:</strong> @Model.TotalEmployees</p>
+                <p class="text-muted mb-0">Database: SQLite (ADO.NET/Dapper)</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col">
+        <div class="card">
+            <div class="card-header">
+                <h5>Recent Assets</h5>
+            </div>
+            <div class="card-body">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Asset Name</th>
+                            <th>Serial Number</th>
+                            <th>Location</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var asset in Model.RecentAssets)
+                        {
+                            <tr>
+                                <td>@asset.AssetName</td>
+                                <td>@asset.SerialNumber</td>
+                                <td>@asset.LocationName, @asset.Building</td>
+                                <td>
+                                    <span class="badge @(asset.Status == "Active" ? "bg-success" : asset.Status == "Maintenance" ? "bg-warning" : "bg-secondary")">
+                                        @asset.Status
+                                    </span>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,66 @@
+@page "{id:int}"
+@model CountyAssetTracker.Pages.Assets.UpdateStatusModel
+@{
+    ViewData["Title"] = "Update Asset Status";
+}
+
+<h1>Update Asset Status</h1>
+<p class="text-muted">Change status using parameterized SQL UPDATE query</p>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h5>Asset: @Model.Asset?.AssetName</h5>
+            </div>
+            <div class="card-body">
+                <dl class="row">
+                    <dt class="col-sm-4">Serial Number</dt>
+                    <dd class="col-sm-8"><code>@Model.Asset?.SerialNumber</code></dd>
+                    
+                    <dt class="col-sm-4">Location</dt>
+                    <dd class="col-sm-8">@Model.Asset?.LocationName, @Model.Asset?.Building</dd>
+                    
+                    <dt class="col-sm-4">Current Status</dt>
+                    <dd class="col-sm-8">
+                        <span class="badge @(Model.Asset?.Status == "Active" ? "bg-success" : Model.Asset?.Status == "Maintenance" ? "bg-warning text-dark" : "bg-secondary")">
+                            @Model.Asset?.Status
+                        </span>
+                    </dd>
+                </dl>
+
+                <hr />
+
+                <form method="post">
+                    <div class="mb-3">
+                        <label asp-for="NewStatus" class="form-label"><strong>New Status</strong></label>
+                        <select asp-for="NewStatus" class="form-select" required>
+                            <option value="Active">Active</option>
+                            <option value="Inactive">Inactive</option>
+                            <option value="Maintenance">Maintenance</option>
+                            <option value="Disposed">Disposed</option>
+                        </select>
+                    </div>
+
+                    <div class="d-flex gap-2">
+                        <button type="submit" class="btn btn-warning">Update Status</button>
+                        <a href="/Assets" class="btn btn-outline-secondary">Cancel</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card bg-light">
+            <div class="card-header">
+                <h6>SQL Query Preview</h6>
+            </div>
+            <div class="card-body">
+                <pre class="bg-dark text-light p-3 rounded"><code>UPDATE Assets 
+SET Status = @@Status 
+WHERE AssetID = @@AssetID;</code></pre>
+                <small class="text-muted">Parameterized query for safe status update</small>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+@page
+@model CountyAssetTracker.Pages.Locations.IndexModel
+@{
+    ViewData["Title"] = "Locations";
+}
+
+<h1>Locations</h1>
+<p class="text-muted">Physical locations where assets are assigned</p>
+
+<div class="card">
+    <div class="card-body">
+        <table class="table table-striped">
+            <thead class="table-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Location Name</th>
+                    <th>Building</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var location in Model.Locations)
+                {
+                    <tr>
+                        <td>@location.LocationID</td>
+                        <td>@location.LocationName</td>
+                        <td>@location.Building</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
