@@ -29,3 +29,8 @@ outputType = "webview"
 [[ports]]
 localPort = 5000
 externalPort = 80
+
+[deployment]
+deploymentTarget = "autoscale"
+run = ["dotnet", "out/CountyAssetTracker.dll"]
+build = ["dotnet", "publish", "-c", "Release", "-o", "out"]
