@@ -35,6 +35,6 @@ public class IndexModel : PageModel
         var employees = await _db.GetAllEmployeesAsync();
         TotalEmployees = employees.Count();
         
-        RecentAssets = assets.Take(5);
+        RecentAssets = assets.OrderByDescending(a => a.PurchaseDate).Take(5);
     }
 }
