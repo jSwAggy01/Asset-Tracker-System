@@ -73,7 +73,7 @@ Before running the project, ensure you have the following installed:
 git clone https://github.com/jSwAggy01/Asset-Tracker-System.git
 
 # Navigate into the project directory
-cd CountyAssetTracker
+cd Asset-Tracker-System/CountyAssetTracker
 
 # Restore NuGet packages
 dotnet restore
