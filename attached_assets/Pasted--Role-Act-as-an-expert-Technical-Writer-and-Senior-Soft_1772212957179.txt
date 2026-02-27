@@ -1,0 +1,32 @@
+> **Role:** Act as an expert Technical Writer and Senior Software Engineer.
+> **Task:** Generate a comprehensive, industry-standard `README.md` file for my project. The documentation must be clear, professional, scannable, and cater to both quick-start users and deep-dive contributors.
+> **Project Context:**
+> * **Project Name:** [Insert Project Name]
+> * **Brief Description:** [Insert 1-2 sentences about what the project does and the problem it solves]
+> * **Tech Stack:** [Insert languages, frameworks, and key tools used]
+> * **Target Audience:** [e.g., End-users, open-source contributors, internal developers]
+> 
+> 
+> **Required Sections & Structure:**
+> Please structure the markdown file exactly in this order, ensuring high-quality formatting throughout:
+> 1. **Project Title & Badges:** A centered large title. Below it, include placeholder shields/badges for build status, license, version, and dependencies.
+> 2. **Overview / Description:** An engaging introduction explaining *why* this project exists, its core features, and its main value proposition.
+> 3. **Table of Contents:** Linked jump-links to all subsequent sections for easy navigation.
+> 4. **Prerequisites:** A bulleted list of everything a user needs installed before they can run the project (e.g., Node.js v18+, Python 3.10+, specific API keys).
+> 5. **Installation:** Step-by-step terminal commands required to clone the repository, navigate into it, and install dependencies. Use markdown code blocks with bash syntax highlighting.
+> 6. **Usage/Quick Start:** Clear instructions on how to run or use the application. Provide realistic code snippets or terminal commands. If there is a visual component, leave a placeholder for a screenshot (e.g., `![Application Screenshot](docs/screenshot.png)`).
+> 7. **Architecture / How it Works (Optional but recommended):** A brief high-level overview of the system design. Leave a placeholder where a diagram can be inserted.
+> 8. **Configuration / Environment Variables:** A markdown table outlining required environment variables, their types, and a brief description of what they do.
+> 9. **Testing:** Instructions on how to run the test suite, including specific commands.
+> 10. **Contributing:** Guidelines on how others can contribute (e.g., "Fork the repo, create a feature branch, submit a PR"). Mention any code style requirements.
+> 11. **License:** A standard license section (default to MIT if none is provided).
+> 12. **Contact / Support:** Where users can reach out for help or report issues.
+> 
+> 
+> **Formatting Rules:**
+> * Use proper Markdown heading hierarchy (`#`, `##`, `###`).
+> * Use bold text for emphasis on key terms or UI elements.
+> * Use backticks for inline code, file names, and terminal commands.
+> * Keep paragraphs concise to avoid walls of text.
+> 
+> 
