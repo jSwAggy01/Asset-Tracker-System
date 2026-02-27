@@ -64,6 +64,16 @@ Before running the project, ensure you have the following installed:
 - A modern web browser (Chrome, Firefox, Edge)
 - No external database server required -- SQLite is embedded
 
+### Database -- No Setup Required
+
+This project uses **SQLite**, an embedded database that requires **zero installation or configuration**. When you run the application for the first time, it automatically:
+
+1. Creates the `CountyAssets.db` file in the project directory
+2. Executes the SQL schema (`Database/schema.sql`) to create all three tables
+3. Seeds the database with sample locations, assets, and employee records
+
+There is no database server to install, no connection strings to edit, and no migrations to run. Everything is handled by the `DatabaseManager.InitializeDatabase()` method on startup. If you ever want to start fresh, simply delete the `CountyAssets.db` file and restart the application.
+
 ---
 
 ## Installation
