@@ -58,4 +58,6 @@ Three normalized tables with proper foreign key relationships:
 The application runs on port 5000 with the workflow "County Asset Tracker".
 
 ## Recent Changes
-- 2024-12-16: Initial implementation with full CRUD operations
+- 2025-02-27: Updated README with comprehensive documentation, screenshots, and IDE instructions
+- 2025-02-27: Fixed Recent Assets ordering by Purchase Date (newest first)
+- 2025-02-27: Initial implementation with full CRUD operations

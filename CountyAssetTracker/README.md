@@ -30,7 +30,11 @@ County governments manage thousands of IT assets across multiple buildings and d
 - **Object-relational mapping** using Dapper for clean C# data access
 - **Responsive UI** built with Bootstrap 5 and Razor Pages
 
-![Application Screenshot](docs/screenshot.png)
+### Dashboard
+![Dashboard](docs/dashboard.png)
+
+### Asset Inventory
+![Asset Inventory](docs/asset-inventory.png)
 
 ---
 
@@ -82,12 +86,33 @@ dotnet build
 
 ## Usage / Quick Start
 
+### Running from the Command Line
+
 ```bash
-# Run the application
+# Navigate into the project folder
+cd CountyAssetTracker
+
+# Restore dependencies and run
+dotnet restore
 dotnet run
 ```
 
 The application will start on **http://localhost:5000**. Open your browser and navigate to that URL.
+
+### Running from Visual Studio
+
+1. Open `CountyAssetTracker.csproj` in **Visual Studio 2022** (or later)
+2. Visual Studio will automatically restore NuGet packages
+3. Press **F5** (or click the green **Start** button) to build and run
+4. Your default browser will open to the application
+
+### Running from Visual Studio Code
+
+1. Open the `CountyAssetTracker` folder in **VS Code**
+2. Install the **C# Dev Kit** extension if prompted
+3. Open the integrated terminal (`Ctrl + ~`)
+4. Run `dotnet run`
+5. Navigate to **http://localhost:5000** in your browser
 
 ### What You Can Do
 
@@ -363,7 +388,7 @@ This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) f
 ```
 MIT License
 
-Copyright (c) 2024 County Asset Tracker
+Copyright (c) 2025 County Asset Tracker
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
