@@ -1,4 +1,4 @@
-modules = ["dotnet-8.0"]
+modules = ["dotnet-8.0", "nodejs-20"]
 [agent]
 expertMode = true
 
@@ -34,3 +34,6 @@ externalPort = 80
 deploymentTarget = "autoscale"
 run = ["dotnet", "publish/CountyAssetTracker.dll", "--urls", "http://0.0.0.0:5000"]
 build = ["dotnet", "publish", "CountyAssetTracker/CountyAssetTracker.csproj", "-c", "Release", "-o", "publish"]
+
+[nix]
+channel = "stable-25_05"
